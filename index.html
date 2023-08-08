@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Registration Form</title>
+    <title>Registration Form</title>
 </head>
-<h1>Registration Form</h1>
 <body style="color:red; margin-left:500px; margin-top:100px;">
-  <form id="registrationForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" required><br><br>
+    <h1>Registration Form</h1>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" required><br><br>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" required><br><br>
-
-    <label for="dob">Date of Birth:</label>
-    <input type="date" id="dob" required><br><br>
-
-    <label for="terms">Accepted terms?</label>
-    <input type="checkbox" id="terms" required><br><br>
-
-    <input type="submit" value="Submit">
-  </form>
-<h3 style="margin-left:100px;">User Details</h3>
-  <table id="userTable">
-    <thead>
-      <tr>
-        <th style="padding:10px">Name</th>
-        <th style="padding:10px">Email</th>
-        <th style="padding:10px">Password</th>
-        <th style="padding:10px">DOB</th>
-        <th style="padding:10px">Accepted terms</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Entries will be added here dynamically -->
-    </tbody>
-  </table>
-  <script src="index.js"></script>
-
+    <div><form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required><br><br>
+        
+        <label for="acceptedTerms">Accepted terms?</label>
+        <input type="checkbox" id="acceptedTerms"><br><br>
+        
+        <input type="submit" value="Register">
+    </form>
+    
+    <h2 >Registered Users</h2>
+    <table  id="userTable">
+        <tr style=>
+            <th style="padding:10px">Name</th>
+            <th style="padding:10px">Email</th>
+            <th style="padding:10px">Password</th>
+            <th style="padding:10px">Date of Birth</th>
+            <th style="padding:10px">Accepted Terms</th>
+        </tr>
+    </table>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
-
