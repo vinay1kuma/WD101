@@ -2,11 +2,14 @@
 <html>
 <head>
     <title>Registration Form</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<body style="color:red; margin-left:500px; margin-top:100px;">
-    <h1>Registration Form</h1>
+<body style="color:red; margin-left:190px; margin-top:100px;">
+    <div id="container">
+   
 
-    <div><form id="registrationForm">
+    <div id="form"><form id="registrationForm">
+        <h1>Registration Form</h1>
         <label for="name">Name:</label>
         <input type="text" id="name" required><br><br>
         
@@ -24,18 +27,22 @@
         
         <input type="submit" value="Register">
     </form>
-    
+</div>
+<div id= "data_table">
     <h2 >Registered Users</h2>
+    
     <table  id="userTable">
-        <tr style=>
-            <th style="padding:10px">Name</th>
-            <th style="padding:10px">Email</th>
-            <th style="padding:10px">Password</th>
-            <th style="padding:10px">Date of Birth</th>
-            <th style="padding:10px">Accepted Terms</th>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Dob</th>
+            <th>Accepted Terms?</th>
         </tr>
     </table>
-    </div>
+</div>
+</div>
+    
     <script src="index.js"></script>
 </body>
 </html>
