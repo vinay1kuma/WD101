@@ -1,5 +1,3 @@
-
-const registrationForm = document.getElementById("registrationForm");
 const userTable = document.getElementById("userTable");
 
 registrationForm.addEventListener("submit", function(event) {
@@ -34,7 +32,7 @@ registrationForm.addEventListener("submit", function(event) {
     newRow.insertCell(3).textContent = dob;
     newRow.insertCell(4).textContent = acceptedTerms ? "Yes" : "No";
     
-   registrationForm.reset();
+   
     
     // Save data to local storage
     saveDataToLocalStorage(name, email, password, dob, acceptedTerms);
@@ -92,9 +90,3 @@ function saveDataToLocalStorage(name, email, password, dob, acceptedTerms) {
 function loadDataFromLocalStorage() {
     return JSON.parse(localStorage.getItem("userData"));
 }
-
-
-
-
-
-
