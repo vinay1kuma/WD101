@@ -7,41 +7,27 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     const password = document.getElementById("password").value;
     const dob = document.getElementById("dob").value;
     const acceptedTerms = document.getElementById("terms").checked;
+    registrationForm.reset();
 
     // Validate email and age
     // (Implement your email and age validation logic here)
-    const validAge = calculateAge(dob) >= 18 && calculateAge(dob) <= 55;
-    const validEmail = validateEmail(email);
-
-    if (validAge && validEmail) {
-        addEntry(name, email, dob, acceptedTerms);
-        form.reset();
-    } else {
-        alert('Invalid email address or age must be between 18 and 55.');
-    }
-
-function calculateAge(dateString) {
-    const today = new Date();
-    const dob = new Date(dateString);
-    let age = today.getFullYear() - dob.getFullYear();
-    const monthDifference = today.getMonth() - dob.getMonth();
-
-    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
-        age--;
-    }
-
-    return age;
-}
-
-function validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
-
-
-
-
-
+     
+    if (!isValidEmail(email)) {
+      alert("Invalid email address.");
+      return;
+  }
+  
+  if (!isValidPassword(password)) {
+      alert("Password must be at least 6 characters long.");
+      return;
+  }
+  
+  const age = calculateAge(dob);
+  if (age < 18 || age > 55) {
+      alert("Age must be between 18 and 55.");
+      return;
+  }
+  
 
     // Create an object to store the user data
     const user = {
@@ -61,7 +47,7 @@ function validateEmail(email) {
     // Save the updated data back to localStorage
     localStorage.setItem("userData", JSON.stringify(storedData));
 
-    // Update the table with the new user entry
+   //  Update the table with the new user entry
     updateTable(storedData);
   });
 
@@ -81,9 +67,30 @@ function validateEmail(email) {
       tableBody.appendChild(row);
     });
   }
+  function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
+  
+  function isValidPassword(password) {
+      return password.length >= 6;
+  }
+  
+  function calculateAge(dob) {
+      const today = new Date();
+      const birthDate = new Date(dob);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      
+      return age;
+  }
+
 
   // Load the existing data from localStorage on page load
   const storedData = JSON.parse(localStorage.getItem("userData")) || [];
   updateTable(storedData);
-  
- 
+  localStorage.clear();
